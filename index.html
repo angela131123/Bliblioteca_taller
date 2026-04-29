@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Escolar</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">📚 Biblioteca Escolar</div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-texto">
+            <h1>Bienvenido a Nuestra Biblioteca</h1>
+            <p>
+                Explora cientos de <strong>libros increíbles</strong>, administra <strong>préstamos</strong>,
+                usuarios y disfruta una <strong>experiencia moderna y digital</strong>.
+            </p>
+            <a href="login.html" class="btn">🚀 Ingresar al Sistema</a>
+        </div>
+
+        <div class="hero-carrusel">
+            <div class="slider" id="slider"></div>
+            <button class="slider-nav prev" onclick="cambiarSlide(-1)">❮</button>
+            <button class="slider-nav next" onclick="cambiarSlide(1)">❯</button>
+            <div class="slider-dots" id="sliderDots"></div>
+        </div>
+    </section>
+
+    <section class="info">
+        <div class="card">
+            <h3>📘 Gestión de Libros</h3>
+            <p>Registro completo, edición y control de disponibilidad en tiempo real.</p>
+        </div>
+        <div class="card">
+            <h3>👤 Usuarios</h3>
+            <p>Administración completa de estudiantes, docentes y sus datos.</p>
+        </div>
+        <div class="card">
+            <h3>🔄 Préstamos</h3>
+            <p>Control total de préstamos, devoluciones y estadísticas.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        Sistema Biblioteca Escolar © 2024
+    </footer>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

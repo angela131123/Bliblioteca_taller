@@ -1,0 +1,57 @@
+<!-- ===============================
+ARCHIVO: login.html
+=============================== -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Biblioteca</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="login-body">
+
+<div class="login-container">
+
+    <div class="login-box">
+
+        <h1>📚 Biblioteca Escolar</h1>
+
+        <div class="tabs">
+            <button class="tab active" onclick="mostrarLogin()">Iniciar Sesión</button>
+            <button class="tab" onclick="mostrarRegistro()">Registrarse</button>
+        </div>
+
+        <!-- LOGIN -->
+        <div id="loginForm">
+
+            <input type="email" id="correoLogin" placeholder="Correo electrónico">
+            <input type="password" id="claveLogin" placeholder="Contraseña">
+
+            <button class="btn-login" onclick="iniciarSesion()">Ingresar</button>
+
+        </div>
+
+        <!-- REGISTRO -->
+        <div id="registroForm" style="display:none;">
+
+            <input type="text" id="nombreRegistro" placeholder="Nombre completo">
+            <input type="email" id="correoRegistro" placeholder="Correo electrónico">
+            <input type="password" id="claveRegistro" placeholder="Contraseña">
+
+            <button class="btn-login" onclick="registrarUsuario()">Registrarse</button>
+
+        </div>
+
+        <p id="mensaje"></p>
+
+        <a href="index.html" class="volver">⬅ Volver al inicio</a>
+
+    </div>
+
+</div>
+
+<script src="js/login.js"></script>
+</body>
+</html>

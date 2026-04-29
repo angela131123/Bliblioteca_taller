@@ -1,0 +1,60 @@
+<!-- ===============================
+ARCHIVO: modulo1.html
+GESTIÓN DE USUARIOS
+=============================== -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usuarios</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="panel-body">
+
+<header class="panel-header">
+    <h1>👤 Gestión de Usuarios</h1>
+
+    <div class="usuario-box">
+        <button class="btn-salir" onclick="volver()">Panel</button>
+    </div>
+</header>
+
+<section class="card" style="margin:30px;">
+
+<h2>Registrar Usuario</h2><br>
+
+<input type="text" id="nombre" placeholder="Nombre">
+<input type="email" id="correo" placeholder="Correo">
+<input type="password" id="clave" placeholder="Contraseña">
+
+<button class="btn-login" onclick="guardarUsuario()">Guardar Usuario</button>
+
+<p id="mensaje"></p>
+
+</section>
+
+<section class="card" style="margin:30px;">
+
+<h2>Usuarios Registrados</h2><br>
+
+<table width="100%" border="0" id="tablaUsuarios"></table>
+
+</section>
+
+
+<section class="card" style="margin:30px;">
+
+<h2>📚 Libros de la Biblioteca</h2><br>
+
+<div id="librosAPI" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;"></div>
+
+<br>
+<button class="btn-login" onclick="irModulo2()">Ver Más</button>
+
+</section>
+
+<script src="js/modulo1.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2 - Gestión de Libros</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .loading { text-align: center; padding: 40px; color: #666; font-size: 18px; }
+        .card { box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; border-radius: 10px; margin: 20px 0; }
+        input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        .btn-login { background: #007bff; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; margin: 5px; font-weight: bold; }
+        .btn-login:hover { background: #0056b3; }
+        .btn-success { background: #28a745 !important; }
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f8f9fa; font-weight: bold; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; padding: 20px 0; }
+        .api-error { color: #dc3545; text-align: center; padding: 40px; }
+        #totalLibros { color: #007bff; font-weight: bold; }
+    </style>
+</head>
+
+<body class="panel-body">
+    <header class="panel-header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+        <h1 style="margin: 0;">📘 Gestión de Libros</h1>
+        <button class="btn-login btn-success" onclick="volver()" style="padding: 10px 20px;">⬅ Volver</button>
+    </header>
+
+    <!-- FORMULARIO -->
+    <section class="card">
+        <h2>📝 Registrar / Editar Libro</h2>
+        <input type="text" id="titulo" placeholder="Título del libro" maxlength="200">
+        <input type="text" id="autor" placeholder="Autor" maxlength="100">
+        <input type="text" id="categoria" placeholder="Categoría (ej: Novela, Ciencia)" maxlength="50">
+        <button class="btn-login" onclick="guardarLibro()">💾 Guardar Libro</button>
+        <button class="btn-login btn-success" onclick="limpiar()">🧹 Limpiar</button>
+    </section>
+
+    <!-- BUSCADOR -->
+    <section class="card">
+        <h2>🔍 Buscar Libro</h2>
+        <input type="text" id="buscar" placeholder="Buscar por título, autor o categoría..." onkeyup="buscarLibro()">
+    </section>
+
+    <!-- TABLA -->
+    <section class="card">
+        <h2>📋 Libros Registrados (<span id="totalLibros">0</span>)</h2>
+        <table id="tablaLibros"></table>
+    </section>
+
+    <!-- PRÉSTAMOS -->
+    <section class="card" style="text-align:center;">
+        <h2>🚀 Ir a Préstamos</h2>
+        <button class="btn-login" onclick="irPrestamo()" style="font-size:1.2em;padding:15px 40px;">
+            ➡️ Módulo de Préstamos
+        </button>
+    </section>
+
+    <!-- API OPENLIBRARY -->
+    <section class="card">
+        <h2>🌐 Libros desde OpenLibrary (API)</h2>
+        <p>Selecciona un libro con portada real → se guarda automáticamente</p>
+        
+        <div id="apiLoading" class="loading">🔄 Conectando con OpenLibrary...</div>
+        <div id="apiLibros" class="card-grid" style="display:none;"></div>
+        <div id="apiError" class="api-error" style="display:none;"></div>
+    </section>
+
+    <script src="js/modulo2.js"></script>
+</body>
+</html>

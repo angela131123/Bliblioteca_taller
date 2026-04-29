@@ -1,0 +1,51 @@
+<!-- ===============================
+ARCHIVO: panel.html
+=============================== -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel Principal</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="panel-body">
+
+<header class="panel-header">
+    <h1>📚 Biblioteca Escolar</h1>
+
+    <div class="usuario-box">
+        <span id="usuarioNombre"></span>
+        <button onclick="cerrarSesion()" class="btn-salir">Cerrar Sesión</button>
+    </div>
+</header>
+
+<section class="bienvenida">
+    <h2>Bienvenido al Panel Administrativo</h2>
+    <p>Gestiona usuarios, libros y préstamos fácilmente.</p>
+</section>
+
+<section class="menu-panel">
+
+    <a href="modulo1.html" class="card-panel">
+        <h3>👤 Usuarios</h3>
+        <p>Registrar, editar y eliminar usuarios</p>
+    </a>
+
+    <a href="modulo2.html" class="card-panel">
+        <h3>📘 Libros</h3>
+        <p>Administración del catálogo</p>
+    </a>
+
+    <a href="modulo3.html" class="card-panel">
+        <h3>🔄 Préstamos</h3>
+        <p>Prestar y devolver libros</p>
+    </a>
+
+
+</section>
+
+<script src="js/panel.js"></script>
+</body>
+</html>

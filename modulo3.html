@@ -3,60 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Préstamos- Historial</title>
+<title>Préstamos - Historial</title>
+
 <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="panel-body">
 
 <header class="panel-header">
-<h1>📚 Gestión de Préstamos</h1>
-<button class="btn-salir" onclick="volver()">⬅ Libros</button>
+    <h1>📚 Gestión de Préstamos</h1>
+    <button class="btn-salir" onclick="volver()">⬅ Libros</button>
 </header>
 
-<!-- Pestañas fijas -->
-<div class="tabs" style="position:fixed;top:120px;left:30px;right:30px;display:flex;background:#f8f9fa;border-radius:10px 10px 0 0;padding:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
-    <button class="tab-btn active" onclick="mostrarPrestamos()" style="flex:1;padding:15px;border:none;background:white;border-radius:10px 0 0 0;font-weight:bold;cursor:pointer;">📝 Préstamos</button>
-    <button class="tab-btn" onclick="mostrarHistorial()" style="flex:1;padding:15px;border:none;background:white;font-weight:bold;border-left:1px solid #dee2e6;cursor:pointer;">📋 Historial</button>
+<!-- PESTAÑAS -->
+<div class="tabs-container">
+    <button class="tab-btn active" onclick="mostrarPrestamos()">📝 Préstamos</button>
+    <button class="tab-btn" onclick="mostrarHistorial()">📋 Historial</button>
 </div>
 
-<!-- Contenido Préstamos -->
-<section id="prestamos" class="tab-content active" style="margin-top:180px;">
-    <section class="card" style="margin:30px;">
+<!-- ================= PRÉSTAMOS ================= -->
+<section id="prestamos" class="tab-content active">
+
+    <section class="card">
         <h2>Registrar Préstamo</h2>
-        <br>
+
         <input type="text" id="usuario" placeholder="Nombre del usuario">
         <select id="libroSelect"></select>
-        <textarea id="comentario" placeholder="Comentario del lector..." style="width:100%;padding:12px;height:100px;border-radius:8px;"></textarea>
-        <br><br>
-        <button class="btn-login" onclick="registrarPrestamo()">Registrar Préstamo</button>
+
+        <textarea id="comentario" placeholder="Comentario del lector..."></textarea>
+
+        <button class="btn-login" onclick="registrarPrestamo()">
+            Registrar Préstamo
+        </button>
     </section>
 
-    <section class="card" style="margin:30px;">
+    <section class="card">
         <h2>📚 Libros Disponibles</h2>
-        <br>
-        <div id="catalogoPrestamo" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;"></div>
+
+        <div id="catalogoPrestamo" class="grid-libros"></div>
     </section>
+
 </section>
 
-<!-- Contenido Historial -->
-<section id="historial" class="tab-content" style="margin-top:180px;">
-    <section class="card" style="margin:30px;">
+<!-- ================= HISTORIAL ================= -->
+<section id="historial" class="tab-content">
+
+    <section class="card">
         <h2>🕒 Historial de Préstamos</h2>
-        <br>
+
         <div id="historialLibros"></div>
     </section>
-</section>
 
-<style>
-.tab-content { display:none; }
-.tab-content.active { display:block; }
-.tab-btn.active { 
-    background:#007bff !important; 
-    color:white !important; 
-    box-shadow:0 -2px 10px rgba(0,123,255,0.3);
-}
-</style>
+</section>
 
 <script src="js/modulo3.js"></script>
 

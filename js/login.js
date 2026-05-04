@@ -127,16 +127,17 @@ function limpiarMensaje() {
 // CARRUSEL DE LIBROS EN INDEX.HTML
 // ==========================================
 
-// Solo ejecutar si estamos en index.html
+// Solo ejecutar si existe slider
 if (document.getElementById('slider')) {
+
     const librosCarrusel = [
         {
             img: "https://covers.openlibrary.org/b/id/10364748-L.jpg",
-            titulo: "Harry Potter y la Piedra Filosofal",
+            titulo: "Harry Potter",
             autor: "J.K. Rowling"
         },
         {
-            img: "https://covers.openlibrary.org/b/id/8234430-L.jpg", 
+            img: "https://covers.openlibrary.org/b/id/8234430-L.jpg",
             titulo: "El Principito",
             autor: "Antoine de Saint-Exupéry"
         },
@@ -149,75 +150,77 @@ if (document.getElementById('slider')) {
             img: "https://covers.openlibrary.org/b/id/10485722-L.jpg",
             titulo: "El Alquimista",
             autor: "Paulo Coelho"
-        },
-        {
-            img: "https://covers.openlibrary.org/b/id/8224102-L.jpg",
-            titulo: "1984",
-            autor: "George Orwell"
-        },
-        {
-            img: "https://covers.openlibrary.org/b/id/10292258-L.jpg",
-            titulo: "Don Quijote de la Mancha",
-            autor: "Miguel de Cervantes"
         }
     ];
 
     let slideActual = 0;
     let autoSlide;
 
-    // Funciones públicas para onclick
+    // ==========================
+    // BOTONES
+    // ==========================
     window.cambiarSlide = function(direccion) {
-        const totalSlides = librosCarrusel.length;
         slideActual += direccion;
-        if (slideActual >= totalSlides) slideActual = 0;
-        if (slideActual < 0) slideActual = totalSlides - 1;
+
+        if (slideActual >= librosCarrusel.length) slideActual = 0;
+        if (slideActual < 0) slideActual = librosCarrusel.length - 1;
+
         actualizarSlider();
     };
 
     window.irASlide = function(indice) {
         slideActual = indice;
         actualizarSlider();
-        clearInterval(autoSlide);
         reiniciarAutoSlide();
     };
 
+    // ==========================
+    // INICIALIZAR
+    // ==========================
     function initCarrusel() {
+
         const slider = document.getElementById('slider');
         const dotsContainer = document.getElementById('sliderDots');
-        
+
         slider.innerHTML = librosCarrusel.map(libro => `
             <div class="slide">
-                <img src="${libro.img}" alt="${libro.titulo}" 
-                     onerror="this.src='https://via.placeholder.com/280x400/667eea/ffffff?text=📚+Libro'">
+                <img src="${libro.img}">
                 <h3>${libro.titulo}</h3>
                 <p>${libro.autor}</p>
             </div>
         `).join('');
 
-        dotsContainer.innerHTML = librosCarrusel.map((_, i) => 
-            `<span class="dot ${i === 0 ? 'active' : ''}" onclick="irASlide(${i})"></span>`
-        ).join('');
+        dotsContainer.innerHTML = librosCarrusel.map((_, i) => `
+            <span class="dot ${i === 0 ? 'active' : ''}" onclick="irASlide(${i})"></span>
+        `).join('');
 
         reiniciarAutoSlide();
     }
 
+    // ==========================
+    // ACTUALIZAR
+    // ==========================
     function actualizarSlider() {
         const slider = document.getElementById('slider');
         slider.style.transform = `translateX(-${slideActual * 100}%)`;
+
         document.querySelectorAll('.dot').forEach((dot, i) => {
             dot.classList.toggle('active', i === slideActual);
         });
     }
 
+    // ==========================
+    // AUTO PLAY
+    // ==========================
     function reiniciarAutoSlide() {
         clearInterval(autoSlide);
-        autoSlide = setInterval(() => window.cambiarSlide(1), 4000);
+        autoSlide = setInterval(() => cambiarSlide(1), 4000);
     }
 
+}
     // Inicializar
     document.addEventListener('DOMContentLoaded', initCarrusel);
     
     const carrusel = document.querySelector('.hero-carrusel');
     carrusel.addEventListener('mouseenter', () => clearInterval(autoSlide));
     carrusel.addEventListener('mouseleave', reiniciarAutoSlide);
-}

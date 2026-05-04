@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Módulo 4 - Reservas</title>
-
-    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
 
-    <button class="btn" onclick="volverPanel()">
-    ⬅ Volver al Panel
-</button>
-<h1>📚 Reservas de Libros</h1>
+<body class="panel-body">
 
-<!-- NOTIFICACIONES -->
-<div id="notificaciones"></div>
+<header class="panel-header">
+    <h1>📚 Reservas</h1>
+    <button class="btn" onclick="volverPanel()">⬅ Panel</button>
+</header>
 
-<h2>Libros (API)</h2>
-<div id="listaLibros"></div>
+<!-- 🔔 NOTIFICACIONES -->
+<section class="card">
+    <h2>🔔 Notificaciones</h2>
+    <div id="notificaciones"></div>
+</section>
 
-<h2>Mis Reservas</h2>
-<div id="misReservas"></div>
+<!-- 📌 RESERVAS -->
+<section class="card">
+    <h2>📌 Mis Reservas</h2>
+    <div id="misReservas" class="grid"></div>
+</section>
 
-
-<!-- JS -->
 <script src="js/modulo4.js"></script>
-
 </body>
 </html>
